@@ -50,7 +50,6 @@ def main():
                     company_id = int(company_id)
                     if is_valid_company_id(company_id):
                         add_movie(title, release_date, genre, int(duration), age_rating, company_id)
-                        print("Movie successfully added!")
                     else:
                         print("Invalid Company ID. Please select a valid option from the list.")
                 except ValueError:
@@ -72,7 +71,6 @@ def main():
                             continue
                         review_date = input("Enter review date (YYYY-MM-DD): ")
                         add_review(movie_id, reviewer_name, float(review_score), review_date)
-                        print("Review successfully added!")
                     else:
                         print("Invalid Movie ID. Please select a valid option from the list.")
                 except ValueError:
