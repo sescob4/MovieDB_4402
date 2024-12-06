@@ -76,7 +76,7 @@ Ensure you have the following installed on your system:
    - Open the `test_queries.sql` file in MySQL Workbench.
    - Execute each query to validate database functionality.
 2. **Pre-CLI Query Execution**:
-   - Some queries (e.g., inserting reviews) depend on specific movie IDs. Run these queries before interacting with the CLI to ensure the data is consistent.
+   - Some queries (e.g., inserting reviews) depend on specific available review IDS. Run these queries before interacting with the CLI to ensure the data is consistent and the test queries work as expected.
 
 ---
 
