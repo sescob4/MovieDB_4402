@@ -9,12 +9,12 @@ Make sure you have the following installed on your system:
 
 - MySQL Server: Ensure MySQL Server is installed.
 - MySQL Workbench: To manage and access the database (These can be downloadeed here: https://dev.mysql.com/downloads/workbench/).
-- Python 3.x: (Any version of python) Required for running the Python scripts.
-- PyCharm IDE: For executing Python code.
+- Python 3.x: (Any version 3.6 or later of python) Required for running the Python scripts.
+- PyCharm IDE or equivalent: For executing Python code.
 - Required Python Libraries:
-- mysql-connector-python: Install this library using the following command:
+    - mysql-connector-python: Install this library using the following command:
 
-    pip install mysql-connector-python
+        pip install mysql-connector-python
   
 2. Importing the SQL Database into MySQL Workbench
 Launch MySQL Workbench:
@@ -22,7 +22,7 @@ Launch MySQL Workbench:
   - Open MySQL Workbench and connect to your MySQL server instance.
   - Create a New Database:
       - Run the following SQL command in the query editor to create the database:
-      - CREATE DATABASE moviedb;
+          - CREATE DATABASE moviedb;
       - Import the SQL File:
           - Go to Server > Data Import.
           - Select Import from Self-Contained File and choose the provided SQL file (e.g., moviedb.sql).
@@ -47,12 +47,19 @@ Launch MySQL Workbench:
                     password="your_password",  # Replace with your MySQL password
                     database="moviedb"  # Ensure this matches the database name
                 )
+            - The important thing is to make sure the password variable has been changed to the one you set in you MySQL workbench
         
       - Install Required Python Libraries:
           - Open the terminal in PyCharm and run:
               - pip install mysql-connector-python
+
+4. Running the Test Queries
+    - The test_queries.sql file has been provided to be tested.
+    - Open the file after uploading the database or copy its contents into another SQL File. 
+    - For some of the queries in this file to work, they must be run before interacting with the CLI.
+    - This is because they are adding data to a specific ID that is currently available but won't be if a movie or review are added through the CLI
                 
-4. Running the CLI Program
+6. Running the CLI Program
    - Run cli.py:
       - In PyCharm, right-click on cli.py and select Run 'cli'.
           - Main Menu:
@@ -60,11 +67,11 @@ Launch MySQL Workbench:
               - Usage:
                   - Follow the prompts to interact with the database (e.g., adding movies, viewing scores).
                 
-5. Notes
+7. Notes
     - Ensure the MySQL server is running before executing the Python scripts.
     - If you encounter connection errors, double-check the connect_to_db function credentials.
 
-6. Troubleshooting
+8. Troubleshooting
     - Cannot Connect to MySQL:
     - Ensure your MySQL server is running and the credentials in db_functions.py are correct.
     - Missing Tables or Data:
