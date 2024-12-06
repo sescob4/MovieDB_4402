@@ -64,7 +64,7 @@ Ensure you have the following installed on your system:
          )
      ```
 3. **Install Required Libraries**:
-   - Open the terminal in PyCharm and run:
+   - Open the terminal in PyCharm and run if you haven't already:
      ```bash
      pip install mysql-connector-python
      ```
