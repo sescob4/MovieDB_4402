@@ -7,8 +7,8 @@ This README will guide you through importing the SQL database into MySQL Workben
 1. Prerequisites
 Make sure you have the following installed on your system:
 
-- MySQL Server: Ensure MySQL Server is installed and running.
-- MySQL Workbench: To manage the database (These can be downloadeed here: https://dev.mysql.com/downloads/workbench/).
+- MySQL Server: Ensure MySQL Server is installed.
+- MySQL Workbench: To manage and access the database (These can be downloadeed here: https://dev.mysql.com/downloads/workbench/).
 - Python 3.x: (Any version of python) Required for running the Python scripts.
 - PyCharm IDE: For executing Python code.
 - Required Python Libraries:
