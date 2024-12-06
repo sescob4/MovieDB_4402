@@ -110,6 +110,3 @@ Ensure you have the following installed on your system:
 ### **Cannot Connect to MySQL**:
 - Ensure your MySQL server is running.
 - Verify credentials in the `connect_to_db` function (`db_functions.py`).
-- Test your connection:
-  ```bash
-  mysql -u root -p
