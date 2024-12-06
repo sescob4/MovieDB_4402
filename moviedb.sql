@@ -135,7 +135,7 @@ CREATE TABLE `movies` (
   `Duration` int DEFAULT NULL,
   `AgeRating` varchar(10) DEFAULT NULL,
   `CompanyID` int DEFAULT NULL,
-  `AverageScore` decimal(3,2) DEFAULT NULL,
+  `AverageScore` decimal(3,1) DEFAULT NULL,
   PRIMARY KEY (`MovieID`),
   KEY `CompanyID` (`CompanyID`),
   CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `company` (`CompanyID`)
@@ -148,7 +148,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'Barbie','2023-07-21','Fantasy/Comedy',114,'PG-13',1,8.20),(2,'Dune: Part Two','2024-11-03','Sci-Fi/Adventure',155,'PG-13',1,8.50),(3,'The Batman','2022-03-04','Superhero/Action',176,'PG-13',1,8.30),(4,'The Matrix Resurrections','2021-12-22','Sci-Fi/Action',148,'R',1,7.90),(5,'Fantastic Beasts: The Secrets of Dumbledore','2022-04-06','Fantasy',142,'PG-13',1,7.90),(6,'Deadpool & Wolverine','2024-05-15','Superhero/Action',120,'R',2,8.20),(7,'Avatar: The Way of Water','2022-12-16','Sci-Fi/Adventure',192,'PG-13',2,8.60),(8,'Avengers: Endgame','2019-04-26','Superhero/Action',181,'PG-13',2,9.10),(9,'Frozen','2013-11-27','Animation/Family',102,'PG',2,8.40),(10,'Encanto','2021-11-24','Animation/Family',102,'PG',2,8.00),(11,'Jurassic World','2015-06-12','Sci-Fi/Adventure',124,'PG-13',3,8.10),(12,'How to Train Your Dragon','2010-03-26','Animation/Adventure',98,'PG',3,8.00),(13,'Minions','2015-07-10','Animation/Comedy',91,'PG',3,8.00),(14,'The Super Mario Bros. Movie','2023-04-07','Animation/Adventure',92,'PG',3,8.50),(15,'The Secret Life of Pets','2016-06-17','Animation/Comedy',87,'PG',3,8.00),(16,'Top Gun: Maverick','2022-05-27','Action/Drama',130,'PG-13',4,8.60),(17,'Mission: Impossible – Dead Reckoning Part One','2023-07-12','Action/Thriller',150,'PG-13',4,8.10),(18,'A Quiet Place','2018-04-06','Horror/Thriller',90,'PG-13',4,8.00),(19,'Sonic the Hedgehog 2','2022-04-08','Family/Adventure',122,'PG',4,8.00),(20,'Transformers: Rise of the Beasts','2023-06-09','Action/Sci-Fi',135,'PG-13',4,8.30),(21,'Spider-Man: No Way Home','2021-12-17','Superhero/Action',148,'PG-13',5,8.90),(22,'Uncharted','2022-02-18','Action/Adventure',116,'PG-13',5,7.90),(23,'Ghostbusters: Afterlife','2021-11-19','Comedy/Fantasy',124,'PG-13',5,7.80),(24,'Venom: Let There Be Carnage','2021-10-01','Superhero/Horror',97,'PG-13',5,8.10),(25,'Morbius','2022-03-31','Superhero/Horror',104,'PG-13',5,7.90);
+INSERT INTO `movies` VALUES (1,'Barbie','2023-07-21','Fantasy/Comedy',114,'PG-13',1,8.2),(2,'Dune: Part Two','2024-11-03','Sci-Fi/Adventure',155,'PG-13',1,8.5),(3,'The Batman','2022-03-04','Superhero/Action',176,'PG-13',1,8.3),(4,'The Matrix Resurrections','2021-12-22','Sci-Fi/Action',148,'R',1,7.9),(5,'Fantastic Beasts: The Secrets of Dumbledore','2022-04-06','Fantasy',142,'PG-13',1,7.9),(6,'Deadpool & Wolverine','2024-05-15','Superhero/Action',120,'R',2,8.2),(7,'Avatar: The Way of Water','2022-12-16','Sci-Fi/Adventure',192,'PG-13',2,8.6),(8,'Avengers: Endgame','2019-04-26','Superhero/Action',181,'PG-13',2,9.1),(9,'Frozen','2013-11-27','Animation/Family',102,'PG',2,8.4),(10,'Encanto','2021-11-24','Animation/Family',102,'PG',2,8.0),(11,'Jurassic World','2015-06-12','Sci-Fi/Adventure',124,'PG-13',3,8.1),(12,'How to Train Your Dragon','2010-03-26','Animation/Adventure',98,'PG',3,8.0),(13,'Minions','2015-07-10','Animation/Comedy',91,'PG',3,8.0),(14,'The Super Mario Bros. Movie','2023-04-07','Animation/Adventure',92,'PG',3,8.5),(15,'The Secret Life of Pets','2016-06-17','Animation/Comedy',87,'PG',3,8.0),(16,'Top Gun: Maverick','2022-05-27','Action/Drama',130,'PG-13',4,8.6),(17,'Mission: Impossible – Dead Reckoning Part One','2023-07-12','Action/Thriller',150,'PG-13',4,8.1),(18,'A Quiet Place','2018-04-06','Horror/Thriller',90,'PG-13',4,8.0),(19,'Sonic the Hedgehog 2','2022-04-08','Family/Adventure',122,'PG',4,8.0),(20,'Transformers: Rise of the Beasts','2023-06-09','Action/Sci-Fi',135,'PG-13',4,8.3),(21,'Spider-Man: No Way Home','2021-12-17','Superhero/Action',148,'PG-13',5,8.9),(22,'Uncharted','2022-02-18','Action/Adventure',116,'PG-13',5,7.9),(23,'Ghostbusters: Afterlife','2021-11-19','Comedy/Fantasy',124,'PG-13',5,7.8),(24,'Venom: Let There Be Carnage','2021-10-01','Superhero/Horror',97,'PG-13',5,8.1),(25,'Morbius','2022-03-31','Superhero/Horror',104,'PG-13',5,7.9);
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-05 18:50:31
+-- Dump completed on 2024-12-05 23:09:29
