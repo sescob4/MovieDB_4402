@@ -7,7 +7,7 @@ This project provides a movie database system that allows users to manage, query
 
 ## **README Overview**
 This guide explains how to:
-1. Import the SQL database into MySQL Workbench.
+1. Import the SQL database (moviedb.sql) into MySQL Workbench.
 2. Set up and run the Python scripts (`db_functions.py` and `cli.py`) in PyCharm.
 3. Test the database functionality with provided queries.
 
