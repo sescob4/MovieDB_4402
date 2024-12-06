@@ -1,83 +1,115 @@
-# MovieDB_4402
-Movie Database Project for CSC 4402: Database Management Systems
+# **MovieDB_4402**
+**Movie Database Project for CSC 4402: Database Management Systems**
 
-README
-This README will guide you through importing the SQL database into MySQL Workbench and running the provided Python scripts (db_functions.py and cli.py) in PyCharm.
+This project provides a movie database system that allows users to manage, query, and interact with movie data using Python scripts and a MySQL database.
 
-1. Prerequisites
-Make sure you have the following installed on your system:
+---
 
-- MySQL Server: Ensure MySQL Server is installed.
-- MySQL Workbench: To manage and access the database (These can be downloadeed here: https://dev.mysql.com/downloads/workbench/).
-- Python 3.x: (Any version 3.6 or later of python) Required for running the Python scripts.
-- PyCharm IDE or equivalent: For executing Python code.
-- Required Python Libraries:
-    - mysql-connector-python: Install this library using the following command:
+## **README Overview**
+This guide explains how to:
+1. Import the SQL database into MySQL Workbench.
+2. Set up and run the Python scripts (`db_functions.py` and `cli.py`) in PyCharm.
+3. Test the database functionality with provided queries.
 
-        pip install mysql-connector-python
-  
-2. Importing the SQL Database into MySQL Workbench
-Launch MySQL Workbench:
+---
 
-  - Open MySQL Workbench and connect to your MySQL server instance.
-  - Create a New Database:
-      - Run the following SQL command in the query editor to create the database:
-          - CREATE DATABASE moviedb;
-      - Import the SQL File:
-          - Go to Server > Data Import.
-          - Select Import from Self-Contained File and choose the provided SQL file (e.g., moviedb.sql).
-          - Select the target schema as moviedb.
-          - Click Start Import to load the database.
-          - Verify the Import:
-              - Run the following command in MySQL Workbench to check if the tables were imported correctly:
-                  USE moviedb;
-                  SHOW TABLES;
-                
-3. Setting Up the Python Scripts
-  - Open the Project in PyCharm:
-      - Copy db_functions.py and cli.py to your project directory.
-      - Open PyCharm and load the project folder containing these files.
-      - Configure the Database Connection:
-            - Update the connect_to_db function in db_functions.py with your MySQL credentials:
-                def connect_to_db():
-                """Connect to the database."""
-                return mysql.connector.connect(
-                    host="localhost",
-                    user="root",  # Replace with your MySQL username, likely just root
-                    password="your_password",  # Replace with your MySQL password
-                    database="moviedb"  # Ensure this matches the database name
-                )
-            - The important thing is to make sure the password variable has been changed to the one you set in you MySQL workbench
-        
-      - Install Required Python Libraries:
-          - Open the terminal in PyCharm and run:
-              - pip install mysql-connector-python
+## **1. Prerequisites**
+Ensure you have the following installed on your system:
+- **MySQL Server**: Required for hosting the database.
+- **MySQL Workbench**: To manage and interact with the database. [Download here](https://dev.mysql.com/downloads/workbench/).
+- **Python 3.x**: Any version 3.6 or later is recommended.
+- **PyCharm IDE**: Or any equivalent Python IDE for running and editing scripts.
+- **Required Python Library**:
+    - Install `mysql-connector-python` using the following command:
+      ```bash
+      pip install mysql-connector-python
+      ```
 
-4. Running the Test Queries
-    - The test_queries.sql file has been provided to be tested.
-    - Open the file after uploading the database or copy its contents into another SQL File. 
-    - For some of the queries in this file to work, they must be run before interacting with the CLI.
-    - This is because they are adding data to a specific ID that is currently available but won't be if a movie or review are added through the CLI
-                
-6. Running the CLI Program
-   - Run cli.py:
-      - In PyCharm, right-click on cli.py and select Run 'cli'.
-          - Main Menu:
-              - The program will display a main menu with options to list movies, add movies, reviews, and more.
-              - Usage:
-                  - Follow the prompts to interact with the database (e.g., adding movies, viewing scores).
-                
-7. Notes
-    - Ensure the MySQL server is running before executing the Python scripts.
-    - If you encounter connection errors, double-check the connect_to_db function credentials.
+---
 
-8. Troubleshooting
-    - Cannot Connect to MySQL:
-    - Ensure your MySQL server is running and the credentials in db_functions.py are correct.
-    - Missing Tables or Data:
-    
-    - Re-import the SQL file into MySQL Workbench.
-    - Python Errors:
-        - Ensure the required libraries are installed.
-        - Check for typos in inputs (e.g., dates or numeric values).
-    If you follow these steps and encounter issues, feel free to ask for help!
+## **2. Importing the SQL Database into MySQL Workbench**
+1. **Launch MySQL Workbench** and connect to your MySQL server instance.
+2. **Create a New Database**:
+   - Open a new query tab and execute the following SQL command to create the database:
+     ```sql
+     CREATE DATABASE moviedb;
+     ```
+3. **Import the `.sql` File**:
+   - Go to **Server > Data Import** in MySQL Workbench.
+   - Select **Import from Self-Contained File** and choose the provided `moviedb.sql` file.
+   - Choose the target schema as `moviedb`.
+   - Click **Start Import** to load the database.
+4. **Verify the Import**:
+   - Run the following commands to ensure the tables were imported successfully:
+     ```sql
+     USE moviedb;
+     SHOW TABLES;
+     ```
+
+---
+
+## **3. Setting Up the Python Scripts**
+1. **Copy the Scripts**:
+   - Copy `db_functions.py` and `cli.py` to your project directory.
+2. **Update the Database Connection**:
+   - Edit the `connect_to_db` function in `db_functions.py` to match your MySQL credentials:
+     ```python
+     def connect_to_db():
+         """Connect to the database."""
+         return mysql.connector.connect(
+             host="localhost",
+             user="root",  # Replace with your MySQL username
+             password="your_password",  # Replace with your MySQL password
+             database="moviedb"  # Ensure this matches the database name
+         )
+     ```
+3. **Install Required Libraries**:
+   - Open the terminal in PyCharm and run:
+     ```bash
+     pip install mysql-connector-python
+     ```
+
+---
+
+## **4. Running the Test Queries**
+1. **Use the Provided SQL File**:
+   - Open the `test_queries.sql` file in MySQL Workbench.
+   - Execute each query to validate database functionality.
+2. **Pre-CLI Query Execution**:
+   - Some queries (e.g., inserting reviews) depend on specific movie IDs. Run these queries before interacting with the CLI to ensure the data is consistent.
+
+---
+
+## **5. Running the CLI Program**
+1. **Run `cli.py`**:
+   - Open `cli.py` in PyCharm.
+   - Right-click on the file and select **Run 'cli'**.
+2. **Main Menu**:
+   - You will see the following options:
+     ```plaintext
+     Main Menu
+     1. List All Movies
+     2. Get Average Movie Scores
+     3. Top Movies and Studios
+     4. Add a Movie
+     5. Add a Review
+     6. Exit
+     ```
+3. **Using the CLI**:
+   - Follow the on-screen prompts to interact with the database (e.g., add movies, view scores, etc.).
+
+---
+
+## **6. Notes**
+- **MySQL Server**: Ensure it is running before executing Python scripts.
+- **Environment**: Run Python scripts in the same Python environment where dependencies are installed.
+
+---
+
+## **7. Troubleshooting**
+### **Cannot Connect to MySQL**:
+- Ensure your MySQL server is running.
+- Verify credentials in the `connect_to_db` function (`db_functions.py`).
+- Test your connection:
+  ```bash
+  mysql -u root -p
