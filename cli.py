@@ -10,6 +10,7 @@ from db_functions import (
     is_valid_movie_id
 )
 
+import datetime
 
 def main():
     while True:
@@ -34,7 +35,15 @@ def main():
         elif choice == "4":
             # Add a new movie
             title = input("Enter movie title: ")
-            release_date = input("Enter release date (YYYY-MM-DD): ")
+            while True:
+                release_date = input("Enter release date (YYYY-MM-DD): ")
+                try:
+                    # Try to parse the date
+                    datetime.datetime.strptime(release_date, "%Y-%m-%d")
+                    break  # Exit the loop if the date is valid
+                except ValueError:
+                    print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+
             genre = input("Enter genre: ")
             duration = input("Enter duration in minutes: ")
             if not duration.isdigit():
@@ -50,6 +59,7 @@ def main():
                     company_id = int(company_id)
                     if is_valid_company_id(company_id):
                         add_movie(title, release_date, genre, int(duration), age_rating, company_id)
+                        print("Movie successfully added!")
                     else:
                         print("Invalid Company ID. Please select a valid option from the list.")
                 except ValueError:
@@ -66,17 +76,28 @@ def main():
                     if is_valid_movie_id(movie_id):
                         reviewer_name = input("Enter reviewer name: ")
                         review_score = input("Enter review score: ")
-                        if not review_score.replace('.', '', 1).isdigit():
-                            print("Invalid score. Please enter a valid number.")
+                        if not review_score.replace('.', '', 1).isdigit() or not (0.0 <= float(review_score) <= 10.0):
+                            print("Invalid score. Please enter a number between 0.0 and 10.0.")
                             continue
-                        review_date = input("Enter review date (YYYY-MM-DD): ")
+
+                        # Validate review date
+                        while True:
+                            review_date = input("Enter review date (YYYY-MM-DD): ")
+                            try:
+                                datetime.datetime.strptime(review_date, "%Y-%m-%d")
+                                break
+                            except ValueError:
+                                print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+
                         add_review(movie_id, reviewer_name, float(review_score), review_date)
+                        print("Review successfully added!")
                     else:
                         print("Invalid Movie ID. Please select a valid option from the list.")
                 except ValueError:
                     print("Invalid input. Please enter a number.")
             else:
                 print("Review addition canceled.")
+
         elif choice == "6":
             # Exit the program
             print("Exiting the program.")

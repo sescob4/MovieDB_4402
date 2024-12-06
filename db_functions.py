@@ -7,13 +7,13 @@ def connect_to_db():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="your_password",  # Change to your own password
+        password="your_password_here",  # Change to your own password
         database="moviedb"
     )
 
 
 def list_movies():
-    """Fetch all movies with full details."""
+    """Retrieve all movies with full details."""
     db = connect_to_db()
     cursor = db.cursor()
     cursor.execute("SELECT Title, ReleaseDate, Genre, Duration, AgeRating FROM Movies;")
@@ -106,7 +106,7 @@ def is_valid_movie_id(movie_id):
 
 
 def get_next_movie_id():
-    """Fetch the highest MovieID and increment it to get the next ID."""
+    """Retrieve the highest MovieID and increment it to get the next ID."""
     db = connect_to_db()
     cursor = db.cursor()
     cursor.execute("SELECT MAX(MovieID) FROM Movies;")
@@ -137,7 +137,7 @@ def add_movie(title, release_date, genre, duration, age_rating, company_id):
 
 
 def get_next_review_id():
-    """Fetch the highest ReviewID and increment it to get the next ID."""
+    """Retrieve the highest ReviewID and increment it to get the next ID."""
     db = connect_to_db()
     cursor = db.cursor()
     cursor.execute("SELECT MAX(ReviewID) FROM Reviews;")
